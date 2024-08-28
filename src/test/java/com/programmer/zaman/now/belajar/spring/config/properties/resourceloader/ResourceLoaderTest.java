@@ -10,8 +10,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
-import java.io.InputStream;
-
 @SpringBootTest(classes = ResourceLoaderTest.TestApplication.class)
 
 public class ResourceLoaderTest {
@@ -27,15 +25,15 @@ public class ResourceLoaderTest {
     public static class TestApplication {
         @Component
         public static class SampleResource implements ResourceLoaderAware {
-            private ResourceLoader resoureLoader;
+            private ResourceLoader resourceLoader;
 
             @Override
             public void setResourceLoader(ResourceLoader resourceLoader) {
-                this.resoureLoader = resourceLoader;
+                this.resourceLoader = resourceLoader;
             }
 
             public String getText() throws Exception {
-                Resource resource = resoureLoader.getResource("classpath:/text/resource.txt");
+                Resource resource = resourceLoader.getResource("classpath:/text/resource.txt");
                 try (var inputStream = resource.getInputStream()) {
                     return new String(inputStream.readAllBytes());
                 }
