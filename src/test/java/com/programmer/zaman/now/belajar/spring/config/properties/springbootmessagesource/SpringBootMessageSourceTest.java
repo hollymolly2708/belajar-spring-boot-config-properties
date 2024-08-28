@@ -13,6 +13,8 @@ import java.util.Locale;
 
 @SpringBootTest(classes = SpringBootMessageSourceTest.TestApplication.class)
 public class SpringBootMessageSourceTest {
+
+    
     @Autowired
     private TestApplication.SampleSource sampleSource;
 
