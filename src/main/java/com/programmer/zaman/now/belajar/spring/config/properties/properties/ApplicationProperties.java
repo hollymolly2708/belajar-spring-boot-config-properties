@@ -2,12 +2,33 @@ package com.programmer.zaman.now.belajar.spring.config.properties.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 @ConfigurationProperties("application")
 public class ApplicationProperties {
+    private Duration defaultTimeout;
     private String name;
+    private Date expireDate;
+
+    public Date getExpireDate() {
+        return expireDate;
+    }
+
+    public void setExpireDate(Date expireDate) {
+        this.expireDate = expireDate;
+    }
+
+    public Duration getDefaultTimeout() {
+        return defaultTimeout;
+    }
+
+    public void setDefaultTimeout(Duration defaultTimeout) {
+        this.defaultTimeout = defaultTimeout;
+    }
+
     private Integer version;
     private boolean productionMode;
     private DatabaseProperties databaseProperties;
